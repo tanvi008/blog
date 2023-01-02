@@ -3,9 +3,7 @@ from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
-from django.http import HttpResponseRedirect, HttpResponse
-from django.urls import reverse
-from django.contrib.auth import get_user_model
+
 
 
 # Create your views here.

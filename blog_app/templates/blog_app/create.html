@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="fw-bold">Create your blog</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method = "POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                             <div class="mb-3">
+                                <label for="title">Title : </label>
+                                <input type="text" id="title" name="title"><br><br>
+                             </div>
+                             <div class="mb-3">
+                                <label for="created_by">Created_by :</label>
+                                <input type="text" id="created_by" name="created_by"><br><br>
+                             </div>
+                             <div class="mb-3">
+                                <label for="content">content :</label>
+                                <input type="text" id="content" name="content"><br><br>
+                             </div>
+                             <div class="mb-3">
+                                <label>Your Image File
+                                  <input type="file" name="myImage" />
+                                </label>
+                             </div>
+                            <br><br>
+                            <button type="submit" value="Submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

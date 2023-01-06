@@ -1,3 +1,24 @@
 {% extends 'blog_app/base.html' %}
-<br><br><br>
-<h1> These are my blogs:</h1>
+<body>
+    {% block content %}
+    <br><br><br>
+        <h1> These are my blogs:</h1><br>
+      {% for blog in blog_list %}
+            <li>{{ blog.title }}</li>
+             <ul>
+                 <li>{{ blog.id }}</li>
+                     <li>{{ blog.created_by }}</li>
+                    <li>{{ blog.content }}</li>
+                    <li>{{ blog.blog_image }}</li>
+             </ul>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="button">
+                    <a href="{% url 'delete_blog' blog.id %}">Delete</a>
+                </button>
+            </form>
+            <br><br>
+        {% endfor %}
+    {% endblock %}
+</body>
+

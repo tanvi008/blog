@@ -1,13 +1,12 @@
 {% extends 'blog_app/base.html' %}
 <body>
     {% block content %}
-    <br><br><br>
         <h1> These are my blogs:</h1><br>
       {% for blog in blog_list %}
             <li>{{ blog.title }}</li>
              <ul>
                  <li>{{ blog.id }}</li>
-                     <li>{{ blog.created_by }}</li>
+<!--                     <li>{{ blog.created_by }}</li>-->
                     <li>{{ blog.content }}</li>
                     <li>{{ blog.blog_image }}</li>
              </ul>

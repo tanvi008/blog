@@ -19,6 +19,12 @@
     {% endif %}
 </head>
 <body>
+            <br><br><br>
+            <div class="col-md-8">
+              {% if user.is_authenticated %}
+              <h3>Hello {{ user }}</h3>
+              {% endif %}
+            </div>
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
         <div class="container">
@@ -37,8 +43,9 @@
                   <a class="nav-item nav-link" href="{% url 'create' %}">New Post</a>
                   <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                   <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-                  <a class="nav-item nav-link" href="{% url 'create' %}">Post</a>
-                  <a class="nav-item nav-link" href="{% url 'my_blog' %}">My Blog/s</a>
+                  <a class="nav-item nav-link" href="{% url 'my_blog' %}">All Blog/s</a>
+                  <a class="nav-item nav-link" href="{% url 'user_blog_list' user.email %}">My Blog/s</a>
+
 
                 {% else %}
                   <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
@@ -63,11 +70,7 @@
               {% block content %}{% endblock %}
             </div>
             <br><br><br>
-            <div class="col-md-8">
-              {% if user.is_authenticated %}
-              <h2>Hello {{ user }}</h2>
-              {% endif %}
-            </div>
+
         </div>
 
     </main>

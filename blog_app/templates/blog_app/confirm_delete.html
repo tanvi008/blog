@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+{% extends 'blog_app/base.html' %}
 <body>
-    <form method="post">{% csrf_token %}
+    {% block content %}
+    <br><br><br>
+    <form method="post">
+        {% csrf_token %}
     <p>Are you sure you want to delete "{{ object }}"?</p>
         <input type="submit" value="Confirm">
     </form>
+    {% endblock %}
 </body>
 </html>

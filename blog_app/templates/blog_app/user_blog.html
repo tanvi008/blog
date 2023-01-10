@@ -1,0 +1,20 @@
+<!--{% extends 'blog_app/base.html' %}-->
+
+<body>
+{% block content %}
+        <h1> These are my blogs:</h1><br>
+
+      {% for blog in blogs %}
+            <li>{{ blog.title }}</li>
+             <ul>
+                 <li>{{ blog.id }}</li>
+                    <li>{{ blog.content }}</li>
+                    <li>{{ blog.blog_image }}</li>
+             </ul>
+        {% if object.created_by == user %}
+            <a href="{% url 'blog-update' blog.id %}">Update</a>
+            <a href="{% url 'delete_blog' blog.id %}">Delete</a>
+        {% endif %}
+     {% endfor %}
+{% endblock content %}
+</body>

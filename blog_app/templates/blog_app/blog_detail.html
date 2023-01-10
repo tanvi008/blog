@@ -1,0 +1,17 @@
+{% extends "blog_app/base.html" %}
+<body>
+{% block content %}
+<br><br><br>
+      <li>{{ object.title }}</li>
+            <ul>
+               <li>{{ object.id }}</li>
+                  <li>{{ object.content }}</li>
+                  <li>{{ object.blog_image }}</li>
+           </ul>
+        {% if object.created_by == user %}
+            <a href="{% url 'blog-update' blog.id %}">Update</a>
+            <a href="{% url 'delete_blog' blog.id %}">Delete</a>
+        {% endif %}
+        <br><br><br>
+{% endblock %}
+</body>
